@@ -1,10 +1,11 @@
 ## `fastboot-patcher`
-### Before you proceed, some noteworthy things:
+### Halt! Read this first:
 > This repository is basically a fork of [Johx22/Patch-Recovery](https://github.com/Johx22/Patch-recovery)  
 > Which is then based off of this script: [phhusson/samsung-galaxy-a51-gsi-boot](https://github.com/phhusson/samsung-galaxy-a51-gsi-boot)  
 > So, the only thing I really did is revamp the scripts! All credit goes to them.
->
-> For now, there's no workflow, so you have to clone this repo and run the script yourself.
+> 
+> For now, there's no workflow, so you have to clone this repo and run the script yourself,  
+> Meaning you have to use linux to run the script! (unless you get magiskboot.exe and run the script on windows with some edits)
 
 
 ### Instructions for patching!
