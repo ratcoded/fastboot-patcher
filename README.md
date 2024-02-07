@@ -20,4 +20,4 @@ Then, just simply run the script with this command and wait for it to finish, it
 ```bash
 chmod a+x ./magiskboot && chmod a+x ./patcher && ./patcher
 ```
-The original recovery file, a .img file and then a .tar.md5 (for odin) will be made if there's no issues.
+You'll find the original recovery image and 2 new images *(.img and .tar.md5 for odin)* in the top directory if successful.
