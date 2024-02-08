@@ -32,7 +32,7 @@ jobs:
          ./patcher
 
     - name: Upload patched image
-      uses: actions/upload-artifact@3.0.0
+      uses: actions/upload-artifact@v3
       with:
         path: /home/runner/work/fastboot-patcher/fastboot-patcher/output/*.tar.md5
-        name: fastboot-patcher
+        name: Patched Recovery Image
