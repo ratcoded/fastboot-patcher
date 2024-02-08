@@ -39,8 +39,8 @@ existance $csd/keys/phh.pem ":" "openssl genrsa -f4 -out $csd/keys/phh.pem 4096 
 existance $csd/fragments ":" "mkdir $csd/fragments"
 cd fragments
 echo "fragmenting image for patching! if your image is corrupted, this may not end well..."
-$csd/magiskboot unpack $csd/header.img &&
-$csd/magiskboot cpio ramdisk.cpio extract &&
+$csd/magiskboot unpack $csd/header.img |&:
+$csd/magiskboot cpio ramdisk.cpio extract  |&:
 echo "successfully fragmented image!"
 
 # patch the fragmented image
