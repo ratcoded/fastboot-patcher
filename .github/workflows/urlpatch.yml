@@ -1,0 +1,38 @@
+name: Patch Image via URL
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_url:
+        description: 'Recovery Image URL'
+        default: 'https://transfer.sh/<file-id>/<file>.img.lz4'
+        required: true
+        type: string
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Gain file access
+      uses: actions/checkout@core
+    
+    - name: Fetch necessary packages
+      run: |
+         sudo apt install git wget lz4 tar openssl python3 -y
+         
+    - name: Download recovery image from URL
+      run: |
+         wget ${{github.event.inputs.image_url}}
+
+    - name: Start patching script
+      run: |
+         chmod a+x magiskboot
+         chmod a+x patcher
+         ./patcher
+
+    - name: Upload patched image
+      uses: actions/upload-artifact@v3.0.0
+      with:
+        path: /home/runner/work/fastboot-patcher/fastboot-patcher/output/*.tar.md5
+        name: fastboot-patcher
