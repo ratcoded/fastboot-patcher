@@ -28,8 +28,8 @@ jobs:
     - name: Start patching script
       run: |
          chmod a+x magiskboot
-         chmod a+x patcher
-         ./patcher
+         chmod a+x patcher-minimal
+         ./patcher-minimal
 
     - name: Upload patched image
       uses: actions/upload-artifact@v3
