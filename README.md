@@ -4,7 +4,7 @@
 > Which is then based off of this script: [phhusson/samsung-galaxy-a51-gsi-boot](https://github.com/phhusson/samsung-galaxy-a51-gsi-boot)  
 > So, the only thing I really did is revamp the scripts! All credit goes to them.
 > 
-> For now, there's no workflow, so you have to clone this repo and run the script yourself,  
+> There will be no workflow action until a solution is found to the gibberish logging and memory usage or whatever is failing, so you have to clone this repo and run the script yourself,  
 > Meaning you have to use linux to run the script! (unless you get magiskboot.exe and run the script on windows with some edits)
 
 
