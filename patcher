@@ -60,7 +60,7 @@ cd fragments
 message warning "fragmenting image for patching!"
 $csd/magiskboot unpack $csd/header.img &&
 $csd/magiskboot cpio ramdisk.cpio extract &&
-message success "successfully fragmented image!"
+existance $csd/fragments/system/bin/recovery "messge success successfully fragmented image!" "message error fragmentation failed! && exit 1"
 
 # patch the fragmented image
 message warning "patching fragments (14)"
@@ -97,7 +97,7 @@ message success "successfully finished patch to fragmented image!"
 # reassemble fragmented image
 message warning "attempting to reassemble fragmented image! if your image is corrupted, this may not end well..."
 $csd/magiskboot repack $csd/header.img $csd/output.img
-existance $csd/output.img "message success 'assembled output.img!' && cd $csd" "message error 'output.img not found, exiting' && exit 1"
+existance $csd/output.img "message success 'assembled output.img!' && cd $csd" "message error 'failed to assemble image!' && exit 1"
 
 # sign patched image with keyfile
 message info "extracting public key to phh.pub.bin..."
