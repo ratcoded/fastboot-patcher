@@ -26,7 +26,6 @@ fi
 echo "editing image..."
 off=$(grep -ab -o SEANDROIDENFORCE raw.img | tail -n 1 | cut -d : -f 1)
 dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes
-
 echo "made edit to image!"
 echo "running file check..."
 existance $csd/header.img "echo finished!" "echo file check on header.img failed && exit 1"
@@ -84,7 +83,7 @@ echo "successfully finished patch to fragmented image!"
 
 # reassemble fragmented image
 mkdir $csd/output
-echo "attempting to reassemble fragmented image! if your image is corrupted, this may not end well..."
+echo "attempting to defragment image! if your image is corrupted, this may not end well..."
 $csd/magiskboot repack $csd/header.img $csd/output/output.img
 existance $csd/output/output.img "echo assembled output.img! && cd $csd" "echo output.img not found, exiting && exit 1"
 
