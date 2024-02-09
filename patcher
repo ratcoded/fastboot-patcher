@@ -99,7 +99,7 @@ message success 'finished (16)'
 message success "successfully finished patch to fragmented image!"
 
 # reassemble fragmented image
-message warning "attempting to reassemble fragmented image! if your image is corrupted, this may not end well..."
+message warning "attempting to defragment image! if your image is corrupted, this may not end well..."
 $csd/magiskboot repack $csd/header.img $csd/output.img
 existance $csd/output.img "message success 'assembled output.img!' && cd $csd" "message error 'failed to assemble image!' && exit 1"
 
