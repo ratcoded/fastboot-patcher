@@ -96,8 +96,8 @@ message success "successfully finished patch to fragmented image!"
 
 # reassemble fragmented image
 message warning "attempting to reassemble fragmented image!"
-$csd/magiskboot repack $csd/header.img $csd/output.img &&
-message success "assembled output.img!" && cd $csd
+$csd/magiskboot repack $csd/header.img $csd/output.img
+existance $csd/output.img "message success 'assembled output.img!' && cd $csd" "message error 'output.img not found, exiting' && exit 1"
 
 # sign patched image with keyfile
 message info "extracting public key to phh.pub.bin..."
