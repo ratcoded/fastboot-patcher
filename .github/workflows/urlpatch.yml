@@ -34,5 +34,5 @@ jobs:
     - name: Upload patched image
       uses: actions/upload-artifact@v3
       with:
-        path: /home/runner/work/fastboot-patcher/fastboot-patcher/output/*.tar.md5
+        path: /home/runner/work/fastboot-patcher/fastboot-patcher/*.tar.md5
         name: Patched Recovery Image
