@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         path: /home/runner/work/fastboot-patcher/fastboot-patcher/output/*.*
-        name: Patched Recovery Image
+        name: Patched Recovery Image Bundle
         if-no-files-found: error
         retention-days: 15
         compression-level: 0
