@@ -10,24 +10,22 @@ csd=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 pass=":"
 #####================================================#####
 
-# unzip or rename if necessary
+# exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
 if [ $found == true ]; then
-   echo "found lz4-zipped image! unzipping..." &&
-   lz4 -B6 --content-size -f $csd/recovery.img.lz4 && mv ./recovery.img ./raw.img &&
-   echo "unzipped to raw.img!"
+   echo "found lz4-zipped image! please unzip it yourself, and re-run this script! " && exit
 else existance $csd/recovery.img $pass $pass
    if [ $found == true ]; then
       mv $csd/recovery.img $csd/raw.img &&
       echo "found unzipped image!"
-      else echo "no image to patch found. please place recovery.img.lz4 or recovery.img in folder" && exit 1
+      else echo "no image to patch found. please place recovery.img in folder!" && exit 1
    fi
 fi
 
 # edit raw image
 echo "editing image..."
 off=$(grep -ab -o SEANDROIDENFORCE raw.img | tail -n 1 | cut -d : -f 1)
-dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes &&
+dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes &>/dev/null
 echo "made edit to image!"
 
 # make key/signature
@@ -40,7 +38,7 @@ existance $csd/fragments ":" "mkdir $csd/fragments"
 cd fragments
 echo "fragmenting image for patching! if your image is corrupted, this may not end well..."
 $csd/magiskboot unpack $csd/header.img &>/dev/null
-$csd/magiskboot cpio ramdisk.cpio extract  &>/dev/null
+$csd/magiskboot cpio ramdisk.cpio extract &>/dev/null
 echo "successfully fragmented image!"
 
 # patch the fragmented image
