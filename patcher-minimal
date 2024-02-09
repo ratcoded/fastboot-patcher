@@ -11,7 +11,7 @@ pass=":"
 #####================================================#####
 
 # i wonder if the workflow job is running the correct script?
-echo 'running patcher-minimal version 5'
+echo 'running patcher-minimal version 9'
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
@@ -28,7 +28,7 @@ fi
 # edit raw image
 echo "editing image..."
 off=$(grep -ab -o SEANDROIDENFORCE raw.img | tail -n 1 | cut -d : -f 1)
-dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes &>/dev/null
+dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes
 echo "made edit to image!"
 
 # make key/signature
