@@ -77,8 +77,9 @@ echo 'finished (14)'
 echo "successfully finished patch to fragmented image!"
 
 # reassemble fragmented image
+mkdir $csd/output
 echo "attempting to reassemble fragmented image! if your image is corrupted, this may not end well..."
-$csd/magiskboot repack $csd/header.img $csd/output.img
+$csd/magiskboot repack $csd/header.img $csd/output/output.img
 existance $csd/output.img "echo assembled output.img! && cd $csd" "echo output.img not found, exiting && exit 1"
 
 # sign patched image with keyfile
@@ -90,9 +91,9 @@ echo "signed image successfully!"
 
 # package image for use in odin
 echo "packaging image for odin..."
-tar -cvf $csd/output.tar $csd/output.img &&
-md5sum -t $csd/output.tar >> $csd/output.tar &&
-mv $csd/output.tar $csd/output.tar.md5 &&
+tar -cvf $csd/output/output.tar $csd/output/output.img &&
+md5sum -t $csd/output/output.tar >> $csd/output/output.tar &&
+mv $csd/output/output.tar $csd/output/output.tar.md5 &&
 echo "successfully packaged output.img -> output.tar.md5"
 
 # hehe
