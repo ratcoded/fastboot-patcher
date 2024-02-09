@@ -26,6 +26,7 @@ fi
 echo "editing image..."
 off=$(grep -ab -o SEANDROIDENFORCE raw.img | tail -n 1 | cut -d : -f 1)
 dd if=raw.img of=header.img bs=4k count=$off iflag=count_bytes
+
 echo "made edit to image!"
 echo "running file check..."
 existance $csd/header.img "echo finished!" "echo file check on header.img failed && exit 1"
@@ -46,7 +47,7 @@ ls $csd/fragments
 existance $csd/fragments/system/bin/recovery "echo successfully fragmented image!" "echo fragmentation failed! && exit 1"
 
 # patch the fragmented image
-echo "patching fragments (14)"
+echo "patching fragments (16)"
 $csd/magiskboot hexpatch $csd/fragments/system/bin/recovery e10313aaf40300aa6ecc009420010034 e10313aaf40300aa6ecc0094 &&
 echo 'finished (1)' # 20 01 00 35
 $csd/magiskboot hexpatch $csd/fragments/system/bin/recovery eec3009420010034 eec3009420010035 &&
@@ -73,8 +74,12 @@ $csd/magiskboot hexpatch $csd/fragments/system/bin/recovery b4f082ee28b1701c b4f
 echo 'finished (12)'
 $csd/magiskboot hexpatch $csd/fragments/system/bin/recovery 9ef0f4ec28b1701c 9ef0f4ec28b9701c &&
 echo 'finished (13)'
-$csd/magiskboot cpio ramdisk.cpio "add 0755 $csd/fragments/system/bin/recovery $csd/fragments/system/bin/recovery" &&
+$csd/magiskboot hexpatch $csd/fragments/system/bin/recovery 9ef00ced28b1701c 9ef00ced28b9701c &&
 echo 'finished (14)'
+$csd/magiskboot hexpatch $csd/fragments/system/bin/recovery 2001597ae0000054 2001597ae1000054 && # ccmp w9, w25, #0, eq ; b.e #0x20 ===> b.ne #0x20
+echo 'finished (15)'
+$csd/magiskboot cpio ramdisk.cpio "add 0755 $csd/fragments/system/bin/recovery $csd/fragments/system/bin/recovery" &&
+echo 'finished (16)'
 echo "successfully finished patch to fragmented image!"
 
 # reassemble fragmented image
