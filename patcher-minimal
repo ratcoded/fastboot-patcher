@@ -10,12 +10,9 @@ csd=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 pass=":"
 #####================================================#####
 
-# i wonder if the workflow job is running the correct script?
-echo 'running patcher-minimal version 12'
-
 # can you create folders and use them in workflows?
 mkdir $csd/test
-existance $csd/text "echo 'yes it exists!'" "echo 'no it doesn't!'"
+existance $csd/text "echo 'yes it exists!'" "echo 'no it doesn\'t!'"
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
