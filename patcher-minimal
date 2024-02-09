@@ -12,7 +12,7 @@ pass=":"
 
 # can you create folders and use them in workflows?
 mkdir $csd/test
-existance $csd/text "echo 'yes it exists!'" "echo 'no it doesn\'t!'"
+existance $csd/text "echo true" "echo false"
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
