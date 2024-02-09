@@ -10,7 +10,7 @@ on:
         type: string
 
 jobs:
-  patch:
+  process:
     runs-on: ubuntu-latest
     
     steps:
