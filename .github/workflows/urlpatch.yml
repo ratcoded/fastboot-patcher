@@ -31,8 +31,12 @@ jobs:
          chmod a+x patcher-minimal
          ./patcher-minimal
 
-    - name: Upload patched image
-      uses: actions/upload-artifact@v3
+    - name: Upload patched image files
+      uses: actions/upload-artifact@v4
       with:
-        path: /home/runner/work/fastboot-patcher/fastboot-patcher/*.tar.md5
+        path: /home/runner/work/fastboot-patcher/fastboot-patcher/output/*.*
         name: Patched Recovery Image
+        if-no-files-found: error
+        retention-days: 15
+        compression-level: 0
+        overwrite: true
