@@ -40,3 +40,13 @@ jobs:
         retention-days: 15
         compression-level: 0
         overwrite: true
+        
+    - name: Upload keys for patched image
+      uses: actions/upload-artifact@v4
+      with:
+        path: /home/runner/work/fastboot-patcher/fastboot-patcher/keys/*.*
+        name: Patched Image Key Bundle
+        if-no-files-found: error
+        retention-days: 15
+        compression-level: 0
+        overwrite: true
