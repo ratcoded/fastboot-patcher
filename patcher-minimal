@@ -31,8 +31,9 @@ echo "running file check..."
 existance $csd/header.img "echo finished!" "echo file check on header.img failed && exit 1"
 
 # make key/signature
+mkdir $csd/keys
 echo "making keyfile..."
-existance $csd/phh.pem ":" "openssl genrsa -f4 -out $csd/phh.pem 4096 && echo 'made phh.pem'"
+existance $csd/keys/phh.pem ":" "openssl genrsa -f4 -out $csd/phh.pem 4096 && echo 'made phh.pem'"
 
 # fragment the edited image
 mkdir $csd/fragments
@@ -84,9 +85,9 @@ existance $csd/output/output.img "echo assembled output.img! && cd $csd" "echo o
 
 # sign patched image with keyfile
 echo "extracting public key to phh.pub.bin..."
-python3 $csd/avbtool extract_public_key --key $csd/phh.pem --output $csd/phh.pub.bin &&
+python3 $csd/avbtool extract_public_key --key $csd/keys/phh.pem --output $csd/keys/phh.pub.bin &&
 echo "signing patched image with key..."
-python3 $csd/avbtool add_hash_footer --image $csd/output.img --partition_name recovery --partition_size $(wc -c $csd/raw.img | cut -f 1 -d ' ') --key $csd/phh.pem --algorithm SHA256_RSA4096
+python3 $csd/avbtool add_hash_footer --image $csd/output/output.img --partition_name recovery --partition_size $(wc -c $csd/raw.img | cut -f 1 -d ' ') --key $csd/keys/phh.pem --algorithm SHA256_RSA4096
 echo "signed image successfully!"
 
 # package image for use in odin
