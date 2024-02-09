@@ -10,6 +10,9 @@ csd=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 pass=":"
 #####================================================#####
 
+# i wonder if the workflow job is running the correct script?
+echo 'running minimal patcher version'
+
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
 if [ $found == true ]; then
