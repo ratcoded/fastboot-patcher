@@ -33,7 +33,7 @@ echo "made edit to image!"
 
 # make key/signature
 echo "making keyfile..."
-existance $csd/phh.pem ":" "openssl genrsa -f4 -out $csd/keys/phh.pem 4096 && echo 'made phh.pem'"
+existance $csd/phh.pem ":" "openssl genrsa -f4 -out $csd/phh.pem 4096 && echo 'made phh.pem'"
 
 # fragment the edited image
 existance $csd/fragments ":" "mkdir $csd/fragments"
