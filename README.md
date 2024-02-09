@@ -8,7 +8,7 @@
 
 ### Instructions for patching!
 #### In github (using Github Actions)
-> Note: to use github actions, you need to fork this repository first, and also if using any host other than transfer.sh, please check if you can download the image using `wget` - do not open an issue if you haven't checked the link and made sure your image was not corrupted yourself (you can use the workflow logs to see that)
+> Note: to use github actions, you need to fork this repository first, and also if using any other filehost than transfer.sh, please check if you can download the image using `wget` - do not open an issue if you haven't checked the link and made sure your image was not corrupted yourself (you can use the workflow logs to see that)
 
 Upload recovery.img (*not* recovery.img.lz4) to a file host website [like this](https://transfer.sh),  
 go over to the `Actions` tab on your fork, select `Patch Image via URL` and click `Run Workflow`.  
@@ -17,7 +17,7 @@ Click `Run Workflow` again, and when it's done you should have 2 files available
 your patched recovery image, and a version of it that you can use for odin.
 
 #### Natively (Arch/Debian)
-> Note: you're going to need the packages *(git, wget, lz4, tar, openssl, & python3)*,  
+> Note: you're going to need the packages *(git, wget, lz4, tar, openssl, & python3)* available in your terminal,  
 > and *recovery.img.lz4 or recovery.img.* Personally, I unzipped the AP archive of a stock rom and got my recovery image from that.
 > Also, patcher-minimal has a bunch of workarounds for the workflow, so I'm not sure how good of an idea it'd be to run that instead of patcher locally.
 
