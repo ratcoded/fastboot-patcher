@@ -5,7 +5,7 @@ on:
     inputs:
       image_url:
         description: 'Recovery Image URL'
-        default: 'https://transfer.sh/<file-id>/<file>.img.lz4'
+        default: 'https://transfer.sh/<file-id>/<file>.img'
         required: true
         type: string
 
