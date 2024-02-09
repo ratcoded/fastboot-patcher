@@ -11,7 +11,10 @@ pass=":"
 #####================================================#####
 
 # i wonder if the workflow job is running the correct script?
-echo 'running patcher-minimal version 9'
+echo 'running patcher-minimal version 12'
+
+# can you create folders and use them in workflows?
+existance $csd/test "echo 'it exists!!!'" "mkdir $csd/test"
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
