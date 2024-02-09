@@ -14,7 +14,8 @@ pass=":"
 echo 'running patcher-minimal version 12'
 
 # can you create folders and use them in workflows?
-existance $csd/test "echo 'it exists!!!'" "mkdir $csd/test"
+mkdir $csd/test
+existance $csd/text "echo 'yes it exists!'" "echo 'no it doesn't!'"
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
@@ -39,7 +40,7 @@ echo "making keyfile..."
 existance $csd/phh.pem ":" "openssl genrsa -f4 -out $csd/phh.pem 4096 && echo 'made phh.pem'"
 
 # fragment the edited image
-existance $csd/fragments ":" "mkdir $csd/fragments"
+mkdir $csd/fragments
 cd fragments
 echo "fragmenting image for patching!"
 $csd/magiskboot unpack $csd/header.img &>/dev/null
@@ -97,10 +98,5 @@ md5sum -t $csd/output.tar >> $csd/output.tar &&
 mv $csd/output.tar $csd/output.tar.md5 &&
 echo "successfully packaged output.img -> output.tar.md5"
 
-# dispose of any unnecessary files
-echo "cleaning up the directory..."
-sudo rm -rf $csd/fragments &&
-sudo rm -rf $csd/header.img &&
-mv $csd/raw.img $csd/recovery.img &&
-sudo rm -rf $csd/keys/phh.pem &&
+# hehe
 echo "enjoy! hope what you're trying to do works."
