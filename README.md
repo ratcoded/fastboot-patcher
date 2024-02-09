@@ -18,6 +18,7 @@ your patched recovery image, and a version of it that you can use for odin.
 #### Natively (Arch/Debian)
 > Note: you're going to need the packages *(git, wget, lz4, tar, openssl, & python3)*,  
 > and *recovery.img.lz4 or recovery.img.* Personally, I unzipped the AP archive of a stock rom and got my recovery image from that.
+> Also, patcher-minimal has a bunch of workarounds for the workflow, so I'm not sure how good of an idea it'd be to run that instead of patcher locally.
 
 If you have those, then clone the repository, and move your recovery image to it.
 ```bash
