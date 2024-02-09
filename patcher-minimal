@@ -11,7 +11,7 @@ pass=":"
 #####================================================#####
 
 # i wonder if the workflow job is running the correct script?
-echo 'running minimal patcher version'
+echo 'running patcher-minimal version 5'
 
 # exit or rename if necessary
 existance $csd/recovery.img.lz4 $pass $pass
