@@ -10,8 +10,10 @@
 
 Upload recovery.img **(*not* recovery.img.lz4)** to a file host website [like this](https://transfer.sh),  
 go over to the `Actions` tab on your fork, select `Patch Image via URL` and click `Run Workflow`.  
-It should open up a little window that allows you to enter a link, paste the file host link for your recovery image there  
-`(e.g. https://transfer.sh/xxxxxx/recovery.img)` - then click `Run Workflow` again to start the process.  
+It should open up a little window that allows you to enter a link,  
+paste the file host link for your recovery image there
+`(e.g. https://transfer.sh/xxxxxx/recovery.img)` -  
+then click `Run Workflow` again to start the process.  
 
 When it's done, you should have 2 files available to download - 1 being the keys, of which signifigance I'm not sure myself,  
 and the other will hold your patched recovery image, and a version of it that you can use for odin.
