@@ -78,7 +78,7 @@ $csd/magiskboot hexpatch system/bin/recovery 20f0a6ef38b1681c 20f0a6ef38b9681c &
 message success 'finished (6)'
 $csd/magiskboot hexpatch system/bin/recovery 23f03aed38b1681c 23f03aed38b9681c &&
 message success 'finished (7)'
-$csd/magiskboot hexpatch system/bin/recovery 20f09eef38b1681c 20f09eef38b9681c |&:
+$csd/magiskboot hexpatch system/bin/recovery 20f09eef38b1681c 20f09eef38b9681c &&
 message success 'finished (8)'
 $csd/magiskboot hexpatch system/bin/recovery 26f0ceec30b1681c 26f0ceec30b9681c &&
 message success 'finished (9)'
@@ -94,7 +94,7 @@ $csd/magiskboot hexpatch system/bin/recovery 9ef00ced28b1701c 9ef00ced28b9701c &
 message success 'finished (14)'
 $csd/magiskboot hexpatch system/bin/recovery 2001597ae0000054 2001597ae1000054 && # ccmp w9, w25, #0, eq ; b.e #0x20 ===> b.ne #0x20
 message success 'finished (15)'
-$csd/magiskboot cpio ramdisk.cpio 'add 0755 system/bin/recovery system/bin/recovery' |&:
+$csd/magiskboot cpio ramdisk.cpio 'add 0755 system/bin/recovery system/bin/recovery' &&
 message success 'finished (16)'
 message success "successfully finished patch to fragmented image!"
 
