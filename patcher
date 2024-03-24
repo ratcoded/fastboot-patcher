@@ -113,9 +113,10 @@ message success "signed image successfully!"
 # package image for use in odin
 message info "packaging image for odin..."
 tar -cvf $csd/output.tar $csd/output.img &&
-md5sum -t $csd/output.tar >> $csd/output.tar &&
-mv $csd/output.tar $csd/output.tar.md5 &&
-message success "successfully packaged output.img -> output.tar.md5"
+# hold off on this; what does it even do?
+# md5sum -t $csd/output.tar >> $csd/output.tar &&
+# mv $csd/output.tar $csd/output.tar.md5 &&
+message success "successfully packaged output.img -> output.tar"
 
 # dispose of any unnecessary files
 message warning "cleaning up the directory..."
