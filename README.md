@@ -1,4 +1,5 @@
 ## `fastboot-patcher`
+### HALT! I will not be updating this repo - due to a lack of understanding on what it does, I cannot solve anything else other than revamping the scripts!
 > This repository is basically a updated version of [Johx22/Patch-Recovery](https://github.com/Johx22/Patch-recovery)  
 > Which is then based off of this script: [phhusson/samsung-galaxy-a51-gsi-boot](https://github.com/phhusson/samsung-galaxy-a51-gsi-boot)  
 > The workflow is fixed, the scripts have been combined and revamped, etc.  
